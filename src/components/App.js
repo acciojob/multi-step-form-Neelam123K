@@ -1,44 +1,14 @@
-import React, { useState } from 'react';
-import Step from './Step.js';
+import React, { useState } from "react";
+import './../styles/App.css';
+import Step from "./Step";
 
 const App = () => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    model: '',
-    car_price: '',
-    card_info: '',
-    expiry_date: ''
-  });
-
-  const nextStep = () => setCurrentStep((prev) => prev + 1);
-  const prevStep = () => setCurrentStep((prev) => prev - 1);
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.id]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form Submitted:', formData);
-  };
-
+  const [ind,setInd] = useState(1)
   return (
-    <form onSubmit={handleSubmit}>
-      <Step
-        currentStep={currentStep}
-        nextStep={nextStep}
-        prevStep={prevStep}
-        handleChange={handleChange}
-        formData={formData}
-        handleSubmit={handleSubmit}
-      />
-    </form>
-  );
-};
+    <div>
+      <Step ind={ind} setInd={setInd}/>
+    </div>
+  )
+}
 
-export default App;
+export default App
