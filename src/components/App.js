@@ -12,8 +12,13 @@ const App = () => {
         expiry_date: ''
     });
 
-    const nextStep = () => setCurrentStep(prevStep => prevStep + 1);
-    const prevStep = () => setCurrentStep(prevStep => prevStep - 1);
+    const nextStep = () => {
+        setCurrentStep((prevStep) => prevStep + 1);
+    };
+
+    const prevStep = () => {
+        setCurrentStep((prevStep) => prevStep - 1);
+    };
 
     const handleChange = (e) => {
         setFormData({
@@ -24,7 +29,6 @@ const App = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission
         console.log(formData);
     };
 
